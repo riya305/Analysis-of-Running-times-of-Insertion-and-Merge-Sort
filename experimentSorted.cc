@@ -123,22 +123,20 @@ int main()
 		arr[i] = rand() % 100000;
 		prev_arr[i]=arr[i];
 	}
-
+	mergeSort(prev_arr,0,n-1);
 	int startI = clock();
-    insertionSort(arr, n);
-    int max=arr[n-1];
-    int stopI = clock(); 
-    int durationI = (stopI-startI)/double(CLOCKS_PER_SEC)*1000*1000; 
-    cout << "Time taken by insertionSort: " << durationI << " microseconds" << endl;
-    int startM = clock(); 
-    mergeSort(prev_arr,0,n-1);
-    max=arr[n-1];
-    int stopM = clock(); 
-    int durationM = (stopM-startM)/double(CLOCKS_PER_SEC)*1000*1000; 
-    cout << "Time taken by mergeSort: " << durationM << " microseconds" << endl; 
+  insertionSort(prev_arr, n);
+  int stopI = clock(); 
+  int durationI = (stopI-startI)/double(CLOCKS_PER_SEC)*1000*1000; 
+  cout << "Time taken by insertionSort: " << durationI << " microseconds" << endl;
+  int startM = clock(); 
+  mergeSort(prev_arr,0,n-1);
+  int stopM = clock(); 
+  int durationM = (stopM-startM)/double(CLOCKS_PER_SEC)*1000*1000; 
+  cout << "Time taken by mergeSort: " << durationM << " microseconds" << endl; 
     // printArray(arr, n);
  	delete[] prev_arr;
  	delete[] arr;
-    return 0;
+  return 0;
 
 }
